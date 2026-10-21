@@ -1,1 +1,6 @@
-placeholder
+﻿.dsh-office-*
+_*.py
+*.tmp
+Thumbs.db
+.DS_Store
+node_modules/

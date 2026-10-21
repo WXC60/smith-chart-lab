@@ -1,0 +1,9 @@
+{
+  "name": "smith-chart-lab",
+  "private": true,
+  "version": "1.0.0",
+  "description": "教材史密斯圆图分析台：输入题目条件，按步骤作图读数",
+  "scripts": {
+    "test": "node test/verify.mjs"
+  }
+}

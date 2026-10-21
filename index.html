@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>史密斯圆图分析台 · 教材圆图版</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">S</div>
+    <div>
+      <h1>史密斯圆图分析台</h1>
+      <p>输入题目条件 → 按步骤作图 → 直接读数 · 圆图取自《微波技术基础（第3版）》图 4.6</p>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <button class="btn ghost small" id="anatomyBtn" type="button">圆图详解</button>
+    <button class="btn ghost small" id="guideBtn" type="button">教材作图法</button>
+    <span class="tag">教材圆图</span>
+    <span class="tag ghost">数值已对照例 4.1–4.7</span>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="panel params">
+    <h2 class="panel-title">题目条件</h2>
+    <div class="mode-tabs" id="modeTabs"></div>
+    <form id="paramForm" autocomplete="off"></form>
+    <div class="preset-block">
+      <div class="preset-title">教材 / 课件例题（一键填入）</div>
+      <div class="presets" id="presets"></div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="calcBtn" type="button">开始分析</button>
+      <button class="btn" id="resetBtn" type="button">重置</button>
+    </div>
+    <p class="hint" id="modeHint"></p>
+  </section>
+
+  <section class="panel chart-panel">
+    <div class="chart-head">
+      <div>
+        <h2 class="panel-title">史密斯圆图</h2>
+        <div class="chart-sub" id="chartSub">图 4.6 Smith 圆图（阻抗/导纳合用，含波长刻度）</div>
+      </div>
+      <div class="chart-tools">
+        <label class="slider-label">底图 <input type="range" id="chartOpacity" min="45" max="100" value="92" /></label>
+        <button class="btn small" id="savePng" type="button">保存图片</button>
+      </div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="chart" width="1200" height="1200" aria-label="史密斯圆图"></canvas>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="reference hidden" id="reference"></div>
+  </section>
+
+  <section class="panel steps-panel">
+    <div class="steps-head">
+      <h2 class="panel-title">作图步骤</h2>
+      <div class="step-nav">
+        <button class="btn small" id="prevStep" type="button">上一步</button>
+        <span class="step-counter" id="stepCounter">1 / 1</span>
+        <button class="btn small primary" id="nextStep" type="button">下一步</button>
+      </div>
+    </div>
+    <ol class="step-list" id="stepList"></ol>
+    <div class="step-tip">键盘 ← → 也可切换步骤</div>
+  </section>
+</main>
+
+<section class="results" id="results"></section>
+
+<div class="modal" id="guideModal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <h2 class="panel-title">教材作图法 · 完整步骤</h2>
+        <div class="chart-sub">依据《微波技术基础（第3版）》4.1–4.3 节（书页 54–70）整理</div>
+      </div>
+      <button class="btn small" id="guideClose" type="button">关闭</button>
+    </div>
+    <div class="modal-body"><div class="guide" id="guideBody"></div></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <span>圆图来源：李秀萍等《微波技术基础（第3版）》PDF 第 61 页（书页 54）图 4.6，已按扫描几何标定。</span>
+  <span>交互参考：NovaSolver 史密斯圆图计算器（novasolver.jp，REA 逆向证据 ev_92b28b8c…5df984）。</span>
+</footer>
+
+<script src="js/smith.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
